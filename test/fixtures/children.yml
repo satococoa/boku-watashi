@@ -9,7 +9,7 @@ one:
 
 two:
   user_id: 1
-  childname: MyString
+  childname: MyString1
   nickname: MyString
   password_hash: MyString
   password_salt: MyString

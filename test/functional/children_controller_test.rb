@@ -18,7 +18,15 @@ class ChildrenControllerTest < ActionController::TestCase
 
   test "should create child" do
     assert_difference('Child.count') do
-      post :create, :child => @child.attributes
+      @child2 = Fabricate.attributes_for(:childwithuser)
+      attrs = @child.attributes
+      attrs['childname'] = 'child3'
+      attrs['password'] = 'child3'
+      attrs['password'] = 'child3'
+      %w(id password_hash password_salt created_at updated_at user_id).each do |attr|
+        attrs.delete attr
+      end
+      post :create, :child => @child2
     end
 
     assert_redirected_to child_path(assigns(:child))

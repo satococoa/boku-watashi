@@ -26,4 +26,19 @@ class UserTest < ActiveSupport::TestCase
     current_user = User.authenticate(user.email, user.password)
     assert user == current_user
   end
+
+  test "childrenを登録" do
+    user = Fabricate(:user)
+    child = Fabricate(:child)
+    user.children << child
+    assert user.save
+    assert user.children.first == child
+
+    child2 = Fabricate(:child,
+                       :childname => Forgery::Name.first_name,
+                       :nickname => Forgery::Internet.user_name)
+    user.children << child2
+    assert user.save
+    assert_equal 2, user.children.count
+  end
 end
