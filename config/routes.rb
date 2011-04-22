@@ -1,7 +1,13 @@
 BokuWatashi::Application.routes.draw do
-  get "admin/sessions/new"
+  get 'admin_logout' => 'admin/sessions#destroy', :as => 'admin_logout'
+  get 'admin_login' => 'admin/sessions#new', :as => 'admin_login'
+  get 'signup' => 'users#new', :as => 'signup'
+  get 'admin_root' => 'admin/children'
 
-  get "users/new"
+  resources :users
+  namespace 'admin' do
+    resources :sessions, :children
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -52,7 +58,7 @@ BokuWatashi::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
 

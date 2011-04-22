@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BokuWatashi</title>
+  <title>ぼくの / わたしのおこづかい</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+
+  <div id="user_nav">
+    <% if current_user %>
+      ログイン中: <%= current_user.email %>,
+      <%= link_to admin_logout_path %>
+    <% else %>
+      <%= link_to '新規登録', signup_path %>, 
+      <%= link_to 'ログイン', admin_login_path %>
+    <% end %>
+  </div><!-- /user_nav -->
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
 
 <%= yield %>
 
