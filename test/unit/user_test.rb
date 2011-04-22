@@ -20,4 +20,10 @@ class UserTest < ActiveSupport::TestCase
     user = Fabricate.build(:user, :password_confirmation => 'wrong')
     assert !user.valid?
   end
+
+  test "self.authenticate" do
+    user = Fabricate(:user)
+    current_user = User.authenticate(user.email, user.password)
+    assert user == current_user
+  end
 end
