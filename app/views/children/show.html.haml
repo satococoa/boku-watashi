@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @child.user_id
+%p
+  %b Childname:
+  = @child.childname
+%p
+  %b Nickname:
+  = @child.nickname
+%p
+  %b Password hash:
+  = @child.password_hash
+%p
+  %b Password salt:
+  = @child.password_salt
+
+= link_to 'Edit', edit_child_path(@child)
+\|
+= link_to 'Back', children_path

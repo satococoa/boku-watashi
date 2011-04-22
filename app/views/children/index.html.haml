@@ -1,0 +1,27 @@
+%h1 Listing children
+
+%table
+  %tr
+    %th User
+    %th Childname
+    %th Nickname
+    %th Password hash
+    %th Password salt
+    %th
+    %th
+    %th
+
+  - @children.each do |child|
+    %tr
+      %td= child.user_id
+      %td= child.childname
+      %td= child.nickname
+      %td= child.password_hash
+      %td= child.password_salt
+      %td= link_to 'Show', child
+      %td= link_to 'Edit', edit_child_path(child)
+      %td= link_to 'Destroy', child, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Child', new_child_path

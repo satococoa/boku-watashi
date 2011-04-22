@@ -1,0 +1,25 @@
+= form_for @child do |f|
+  -if @child.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@child.errors.count, "error")} prohibited this child from being saved:"
+      %ul
+        - @child.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user_id
+    = f.text_field :user_id
+  .field
+    = f.label :childname
+    = f.text_field :childname
+  .field
+    = f.label :nickname
+    = f.text_field :nickname
+  .field
+    = f.label :password_hash
+    = f.text_field :password_hash
+  .field
+    = f.label :password_salt
+    = f.text_field :password_salt
+  .actions
+    = f.submit 'Save'
