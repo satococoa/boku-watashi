@@ -4,6 +4,7 @@ gem 'rails', '3.0.7'
 gem 'sqlite3'
 gem 'jquery-rails'
 gem 'haml-rails'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 group :development, :test do
   gem 'capybara'
