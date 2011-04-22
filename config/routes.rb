@@ -1,5 +1,5 @@
 BokuWatashi::Application.routes.draw do
-  get "sessions/new"
+  get "admin/sessions/new"
 
   get "users/new"
 
