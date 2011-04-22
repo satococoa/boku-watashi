@@ -11,7 +11,7 @@ group :development, :test do
   gem 'fabrication'
   gem 'forgery'
   gem 'database_cleaner'
-  gem 'autotest'
+  gem 'autotest-rails'
   gem 'autotest-fsevent'
   gem 'autotest-growl'
 end

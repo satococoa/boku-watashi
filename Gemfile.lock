@@ -30,11 +30,11 @@ GEM
       activesupport (= 3.0.7)
     activesupport (3.0.7)
     arel (2.0.9)
-    autotest (4.4.6)
-      ZenTest (>= 4.4.1)
     autotest-fsevent (0.2.5)
       sys-uname
     autotest-growl (0.2.9)
+    autotest-rails (4.1.0)
+      ZenTest
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     capybara (0.4.1.2)
@@ -115,9 +115,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  autotest
   autotest-fsevent
   autotest-growl
+  autotest-rails
   bcrypt-ruby
   capybara
   database_cleaner
