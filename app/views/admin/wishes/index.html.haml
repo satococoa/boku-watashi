@@ -1,7 +1,14 @@
+:javascript
+  $(function(){
+    var $progress = $('#progress');
+    var $inner = $('#progress .inner');
+    $inner.width($progress.width() * $inner.data('width') + '%');
+  });
+
 %h2=t(:wish)
 
 %div#progress
-  %div.inner{:style => "width: #{@child.wishes.approved.monthly(params[:ym]).sum(:cost).to_f / @child.pocket * 100} %;"}
+  %div.inner{:'data-width' => @child.wishes.approved.monthly(params[:ym]).sum(:cost).to_f / @child.pocket}
 
 %p
   = number_with_delimiter(@child.wishes.approved.monthly(params[:ym]).sum(:cost))+' 円'
