@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'i18n_generators'
 
 group :development, :test do
   gem 'capybara'

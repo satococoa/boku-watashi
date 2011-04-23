@@ -65,6 +65,7 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     i18n (0.5.0)
+    i18n_generators (1.0.2)
     jquery-rails (0.2.7)
       rails (~> 3.0)
       thor (~> 0.14.4)
@@ -124,6 +125,7 @@ DEPENDENCIES
   fabrication
   forgery
   haml-rails
+  i18n_generators
   jquery-rails
   rails (= 3.0.7)
   sqlite3
