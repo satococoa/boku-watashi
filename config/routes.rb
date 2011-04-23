@@ -4,8 +4,9 @@ BokuWatashi::Application.routes.draw do
     resources :sessions
     resources :children do
       get 'wishes' => 'wishes#index'
-      put 'wishes/:id/approve' => 'wishes#index'
-      put 'wishes/:id/reject' => 'wishes#index'
+      get 'wishes/:id' => 'wishes#show', :as => 'wish'
+      put 'wishes/:id/approve' => 'wishes#approve'
+      put 'wishes/:id/reject' => 'wishes#reject'
     end
   end
 

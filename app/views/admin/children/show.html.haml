@@ -16,9 +16,9 @@
 %ul
   - for ym in @ym_list
     - if ym == Date.today.strftime('%Y%m')
-      %li=link_to ym, admin_child_wishes_path(@child)
+      %li=link_to "#{ym[0..3]}年#{ym[4..-1]}月のお願い", admin_child_wishes_path(@child)
     - else
-      %li=link_to ym, admin_child_wishes_path(@child, :ym => ym)
+      %li=link_to "#{ym[0..3]}年#{ym[4..-1]}月のお願い", admin_child_wishes_path(@child, :ym => ym)
 
 = link_to 'Edit', edit_admin_child_path(@child)
 \|
