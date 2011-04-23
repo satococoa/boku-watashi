@@ -1,4 +1,4 @@
-class ChildrenController < ApplicationController
+class Admin::ChildrenController < Admin::ApplicationController
   # GET /children
   # GET /children.xml
   def index

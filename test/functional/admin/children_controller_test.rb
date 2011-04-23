@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ChildrenControllerTest < ActionController::TestCase
+class Admin::ChildrenControllerTest < ActionController::TestCase
   setup do
     @child = children(:one)
   end

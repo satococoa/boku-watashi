@@ -1,0 +1,2 @@
+module Admin::ChildrenHelper
+end
