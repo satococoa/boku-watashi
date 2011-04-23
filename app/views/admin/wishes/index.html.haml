@@ -25,17 +25,17 @@
         - if wish.status == 1
           =link_to 'いいよ',
             admin_child_wish_approve_path(wish.child, wish),
-            {:action => 'approve', :method => 'put', :'data-role' => 'button', :target => 'none', :'data-theme' => 'b'}
+            {:action => 'approve', :method => 'put', :'data-role' => 'button', :'data-theme' => 'b'}
         - else
           =link_to 'いいよ',
             admin_child_wish_approve_path(wish.child, wish),
-            {:action => 'approve', :method => 'put', :'data-role' => 'button', :target => 'none'}
+            {:action => 'approve', :method => 'put', :'data-role' => 'button'}
 
         - if wish.status == 2
           =link_to 'ダメ',
             admin_child_wish_reject_path(wish.child, wish),
-            {:action => 'reject', :method => 'put', :'data-role' => 'button', :target => 'none', :'data-theme' => 'b'}
+            {:action => 'reject', :method => 'put', :'data-role' => 'button', :'data-theme' => 'b'}
         - else
           =link_to 'ダメ',
             admin_child_wish_reject_path(wish.child, wish),
-            {:action => 'reject', :method => 'put', :'data-role' => 'button', :target => 'none'}
+            {:action => 'reject', :method => 'put', :'data-role' => 'button'}

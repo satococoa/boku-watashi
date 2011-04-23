@@ -15,6 +15,11 @@
       $.mobile.ajaxEnabled = false;
       $.mobile.ajaxLinksEnabled = false;
       $.mobile.ajaxFormsEnabled = false;
+      $.mobile.hashListeningEnabled = false;
+    });
+    $(function(){
+      $('a').attr('rel', 'external');
+      $('form').attr('data-ajax', 'false');
     });
   </script>
   <div data-role="page" id="container" data-theme="e">
