@@ -5,6 +5,7 @@
     %th User
     %th Childname
     %th Nickname
+    %th Pocket
     %th
     %th
     %th
@@ -14,6 +15,7 @@
       %td= child.user_id
       %td= child.childname
       %td= child.nickname
+      %td= number_with_delimiter(child.pocket)+' 円'
       %td= link_to 'Show', admin_child_path(child)
       %td= link_to 'Edit', edit_admin_child_path(child)
       %td= link_to 'Destroy', admin_child_path(child), :confirm => 'Are you sure?', :method => :delete

@@ -9,6 +9,9 @@
 %p
   %b Nickname:
   = @child.nickname
+%p
+  %b Pocket:
+  = number_with_delimiter(@child.pocket)+' 円'
 
 = link_to 'Edit', edit_admin_child_path(@child)
 \|

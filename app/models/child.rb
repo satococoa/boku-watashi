@@ -1,6 +1,6 @@
 class Child < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :childname, :nickname, :password, :password_confirmation
+  attr_accessible :childname, :nickname, :pocket, :password, :password_confirmation
   
   attr_accessor :password
   before_save :encrypt_password
@@ -8,6 +8,7 @@ class Child < ActiveRecord::Base
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates :childname, :presence => true, :uniqueness => true
+  validates :pocket, :presence => true, :numericality => {:only_integer => true}
   
   def self.authenticate(childname, password)
     user = find_by_childname(childname)
