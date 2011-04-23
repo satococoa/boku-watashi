@@ -11,11 +11,10 @@
 </head>
 <body>
   <script>
-    $(document).bind("mobileinit", function() {
-      $.extend($.mobile, {
-        ajaxLinksEnabled: false,
-        ajaxFormsEnabled: false
-      });
+    $(document).bind("mobileinit", function(){
+      $.mobile.ajaxEnabled = false;
+      $.mobile.ajaxLinksEnabled = false;
+      $.mobile.ajaxFormsEnabled = false;
     });
   </script>
   <div data-role="page" id="container" data-theme="e">
