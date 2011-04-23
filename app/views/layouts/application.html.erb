@@ -48,6 +48,12 @@
     <div id="main" data-role="content">
       <%= yield %>
     </div><!-- /main -->
+
+    <% if params[:controller] == 'welcome' %>
+      <div id="footer" data-role="footer" data-theme="a">
+        <h4><a href="http://twitter.com/satococoa">@satococoa</a></h4>
+      </div><!-- /footer -->
+    <% end %>
   </div><!-- /container -->
 </body>
 </html>
