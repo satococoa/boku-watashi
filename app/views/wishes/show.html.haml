@@ -1,15 +1,17 @@
-%p#notice= notice
+%ul{:'data-role' => 'listview'}
+  %li
+    %b=t(:cost)
+    \:
+    = number_with_delimiter(@wish.cost)+' 円'
+  %li
+    %b=t(:purpose)
+    \:
+    = @wish.purpose
+  %li
+    %b=t(:status)
+    \:
+    = Wish::Status[@wish.status]
 
 %p
-  %b Cost:
-  = number_with_delimiter(@wish.cost)+' 円'
-%p
-  %b Purpose:
-  = @wish.purpose
-%p
-  %b Status:
-  = Wish::Status[@wish.status]
-
-= link_to 'Edit', edit_wish_path(@wish)
-\|
-= link_to 'Back', wishes_path
+  = link_to t(:edit), edit_wish_path(@wish), :'data-role' => 'button'
+  = link_to t(:back), wishes_path, :'data-role' => 'button'

@@ -6,9 +6,10 @@
   まずはおうちのひとに<ruby>登録<rt>とうろく</rt></ruby>してもらってね。
 
 %p
-  = link_to '<ruby>登録<rt>とうろく</rt></ruby>'.html_safe,
-    signup_path, :'data-role' => 'button'
-  = link_to 'おさいふ<ruby>当番<rt>とうばん</rt></ruby> ログイン'.html_safe,
-    admin_login_path, :'data-role' => 'button'
   = link_to 'ぼく / わたし ログイン', child_login_path,
     :'data-role' => 'button'
+  = link_to 'おさいふ<ruby>当番<rt>とうばん</rt></ruby> ログイン'.html_safe,
+    admin_login_path, :'data-role' => 'button'
+%p
+  = link_to '<ruby>登録<rt>とうろく</rt></ruby>'.html_safe,
+    signup_path, :'data-role' => 'button'

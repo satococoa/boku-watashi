@@ -1,7 +1,5 @@
-%h1 Editing wish
-
 = render 'form'
 
-= link_to 'Show', @wish
-\|
-= link_to 'Back', wishes_path
+%p
+  = link_to t(:show), @wish, :'data-role' => 'button'
+  = link_to t(:back), wishes_path, :'data-role' => 'button'

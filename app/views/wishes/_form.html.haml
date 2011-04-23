@@ -7,10 +7,8 @@
           %li= msg
 
   .field
-    = f.label :cost
-    = f.text_field :cost
+    = f.text_field :cost, :placeholder => t(:cost)
   .field
-    = f.label :purpose
-    = f.text_field :purpose
+    = f.text_field :purpose, :placeholder => t(:purpose)
   .actions
-    = f.submit 'Save'
+    = f.submit t(:save)
