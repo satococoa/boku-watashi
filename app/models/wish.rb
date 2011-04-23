@@ -26,13 +26,14 @@ class Wish < ActiveRecord::Base
   scope :cost_summary, sum(:cost)
 
   def self.ym_list(child)
-    rs = select("max(created_at) as max, min(created_at) as min").where(:child_id => child.id)
-    return [] if rs.count == 0
-    row = rs.first
-    diff = (row.max.to_date.year - row.min.to_date.year)*12 + (row.max.to_date.month - row.min.to_date.month)
+    count = self.scoped.where(:child_id => child.id).count
+    return [] if count == 0
+    max_date = self.scoped.where(:child_id => child.id).maximum(:created_at)
+    min_date = self.scoped.where(:child_id => child.id).minimum(:created_at)
+    diff = (max_date.to_date.year - min_date.to_date.year)*12 + (max_date.to_date.month - min_date.to_date.month)
     list = []
     (0..diff).each do |i|
-      list << (row.min.to_date >> i).strftime('%Y%m')
+      list << (min_date.to_date >> i).strftime('%Y%m')
     end
     list
   end
