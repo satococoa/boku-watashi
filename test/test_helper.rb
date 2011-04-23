@@ -14,6 +14,6 @@ class ActiveSupport::TestCase
   end
   
   def login_as_child(child)
-    sesison["child_id"] = child.id
+    session["child_id"] = child.id
   end
 end

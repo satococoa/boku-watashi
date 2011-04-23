@@ -2,7 +2,10 @@ require 'test_helper'
 
 class WishesControllerTest < ActionController::TestCase
   setup do
-    @wish = wishes(:one)
+    @user = Fabricate(:user)
+    @child = Fabricate(:child, :user => @user)
+    @wish = Fabricate(:wish, :child => @child)
+    login_as_child(@child)
   end
 
   test "should get index" do

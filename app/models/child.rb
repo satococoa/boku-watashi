@@ -1,5 +1,6 @@
 class Child < ActiveRecord::Base
   belongs_to :user
+  has_many :wishes
   attr_accessible :childname, :nickname, :pocket, :password, :password_confirmation
   
   attr_accessor :password

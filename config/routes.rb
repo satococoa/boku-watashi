@@ -14,6 +14,7 @@ BokuWatashi::Application.routes.draw do
 
   get 'child_login' => 'sessions#new', :as => 'child_login'
   get 'child_logout' => 'sessions#destroy', :as => 'child_logout'
+  get 'child_root' => 'wishes#index', :as => 'child_root'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,5 +1,15 @@
 %h1 Listing wishes
 
+%p.progress
+  %progress{:max => current_user.pocket, :value => current_user.wishes.approved.monthly(params[:ym]).sum(:cost)}
+    = number_with_delimiter(current_user.wishes.approved.monthly(params[:ym]).sum(:cost))+' 円'
+    \/
+    = number_with_delimiter(current_user.pocket)+' 円'
+  %span
+    = number_with_delimiter(current_user.wishes.approved.monthly(params[:ym]).sum(:cost))+' 円'
+    \/
+    = number_with_delimiter(current_user.pocket)+' 円'
+
 %table
   %tr
     %th Child
@@ -13,9 +23,9 @@
   - @wishes.each do |wish|
     %tr
       %td= wish.child_id
-      %td= wish.cost
+      %td= number_with_delimiter(wish.cost)+' 円'
       %td= wish.purpose
-      %td= wish.status
+      %td= Wish::Status[wish.status]
       %td= link_to 'Show', wish
       %td= link_to 'Edit', edit_wish_path(wish)
       %td= link_to 'Destroy', wish, :confirm => 'Are you sure?', :method => :delete

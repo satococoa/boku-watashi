@@ -1,8 +1,10 @@
 class WishesController < ApplicationController
+  before_filter :require_child
+
   # GET /wishes
   # GET /wishes.xml
   def index
-    @wishes = Wish.all
+    @wishes = current_user.wishes.monthly(params[:ym]).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class WishesController < ApplicationController
   # GET /wishes/1
   # GET /wishes/1.xml
   def show
-    @wish = Wish.find(params[:id])
+    @wish = current_user.wishes.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class WishesController < ApplicationController
   # GET /wishes/new
   # GET /wishes/new.xml
   def new
-    @wish = Wish.new
+    @wish = current_user.wishes.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class WishesController < ApplicationController
 
   # GET /wishes/1/edit
   def edit
-    @wish = Wish.find(params[:id])
+    @wish = current_user.wishes.find(params[:id])
   end
 
   # POST /wishes
   # POST /wishes.xml
   def create
-    @wish = Wish.new(params[:wish])
+    @wish = current_user.wishes.build(params[:wish])
 
     respond_to do |format|
       if @wish.save
@@ -56,7 +58,7 @@ class WishesController < ApplicationController
   # PUT /wishes/1
   # PUT /wishes/1.xml
   def update
-    @wish = Wish.find(params[:id])
+    @wish = current_user.wishes.find(params[:id])
 
     respond_to do |format|
       if @wish.update_attributes(params[:wish])
@@ -72,7 +74,7 @@ class WishesController < ApplicationController
   # DELETE /wishes/1
   # DELETE /wishes/1.xml
   def destroy
-    @wish = Wish.find(params[:id])
+    @wish = current_user.wishes.find(params[:id])
     @wish.destroy
 
     respond_to do |format|
