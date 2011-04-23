@@ -1,5 +1,5 @@
 BokuWatashi::Application.routes.draw do
-  resources :users
+  resources :sessions, :users
   namespace 'admin' do
     resources :sessions, :children
   end

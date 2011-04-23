@@ -14,7 +14,7 @@
         ログイン中: <%= current_user.email %>,
         <%= link_to 'ログアウト', admin_logout_path %>
       <% else %>
-        ログイン中: <%= current_user.childname %>,
+        ログイン中: <%= current_user.nickname %> (<%= current_user.childname %>),
         <%= link_to child_logout_path %>
       <% end %>
     <% else %>
