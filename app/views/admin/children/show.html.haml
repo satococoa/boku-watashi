@@ -12,6 +12,7 @@
     \:
     = number_with_delimiter(@child.pocket)+' 円'
 
+%h3=t(:wish)
 %ul{:'data-role' => 'listview'}
   - for ym in @ym_list
     - if ym == Date.today.strftime('%Y%m')

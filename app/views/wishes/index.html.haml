@@ -1,6 +1,6 @@
 %h2=t(:wish)
 
-%p#progress
+%div#progress
   %div.inner{:style => "width: #{current_user.wishes.approved.monthly(params[:ym]).sum(:cost).to_f / current_user.pocket * 100} %;"}
 
 %p
@@ -11,9 +11,22 @@
 %ul{:'data-role' => 'listview'}
   - @wishes.each do |wish|
     %li{:class => "status_#{wish.status}"}
-      %a{:href => wish_path(wish)}
-        %span.purpose= wish.purpose
-        %span.purpose= number_with_delimiter(wish.cost)+' 円'
+      - if wish.status == 2
+        %a{:href => wish_path(wish)}
+          %del
+            %span.purpose= wish.purpose
+            %span.purpose= number_with_delimiter(wish.cost)+' 円'
+      - elsif wish.status == 0
+        %a{:href => wish_path(wish)}
+          (
+          %span.purpose= wish.purpose
+          %span.purpose= number_with_delimiter(wish.cost)+' 円'
+          )
+      - else
+        %a{:href => wish_path(wish)}
+          %span.purpose= wish.purpose
+          %span.purpose= number_with_delimiter(wish.cost)+' 円'
+        
 
 %p
   = link_to t(:new), new_wish_path, :'data-role' => 'button'

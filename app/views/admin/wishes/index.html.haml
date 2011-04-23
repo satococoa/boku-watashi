@@ -1,12 +1,34 @@
-%h1 Admin::Wishes#index
-%ul
+%h2=t(:wish)
+
+%div#progress
+  %div.inner{:style => "width: #{@child.wishes.approved.monthly(params[:ym]).sum(:cost).to_f / @child.pocket * 100} %;"}
+
+%p
+  = number_with_delimiter(@child.wishes.approved.monthly(params[:ym]).sum(:cost))+' 円'
+  \/
+  = number_with_delimiter(@child.pocket)+' 円'
+
+%ul{:'data-role' => 'listview'}
   - for wish in @wishes
-    %li
-      %span.purpose=wish.purpose
-      %span.cost=number_with_delimiter(wish.cost)+' 円'
-      %span.button=link_to 'いいよ',
-        admin_child_wish_approve_path(wish.child, wish),
-        {:action => 'approve', :method => 'put'}
-      %span.button=link_to 'ダメ',
-        admin_child_wish_reject_path(wish.child, wish),
-        {:action => 'reject', :method => 'put'}
+    %li{:class => "status_#{wish.status}"}
+      =wish.purpose
+      \|
+      =number_with_delimiter(wish.cost)+' 円'
+      %div{:'data-role' => 'controlgroup', :'data-type' => 'horizontal'}
+        - if wish.status == 1
+          =link_to 'いいよ',
+            admin_child_wish_approve_path(wish.child, wish),
+            {:action => 'approve', :method => 'put', :'data-role' => 'button', :target => 'none', :'data-theme' => 'b'}
+        - else
+          =link_to 'いいよ',
+            admin_child_wish_approve_path(wish.child, wish),
+            {:action => 'approve', :method => 'put', :'data-role' => 'button', :target => 'none'}
+
+        - if wish.status == 2
+          =link_to 'ダメ',
+            admin_child_wish_reject_path(wish.child, wish),
+            {:action => 'reject', :method => 'put', :'data-role' => 'button', :target => 'none', :'data-theme' => 'b'}
+        - else
+          =link_to 'ダメ',
+            admin_child_wish_reject_path(wish.child, wish),
+            {:action => 'reject', :method => 'put', :'data-role' => 'button', :target => 'none'}
