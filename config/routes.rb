@@ -1,9 +1,12 @@
 BokuWatashi::Application.routes.draw do
-  resources :wishes
-
-  resources :sessions, :users
+  resources :sessions, :users, :wishes
   namespace 'admin' do
-    resources :sessions, :children
+    resources :sessions
+    resources :children do
+      get 'wishes' => 'wishes#index'
+      put 'wishes/:id/approve' => 'wishes#index'
+      put 'wishes/:id/reject' => 'wishes#index'
+    end
   end
 
   get 'signup' => 'users#new', :as => 'signup'

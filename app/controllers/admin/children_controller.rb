@@ -16,6 +16,7 @@ class Admin::ChildrenController < Admin::ApplicationController
   # GET /admin/children/1.xml
   def show
     @child = current_user.children.find(params[:id])
+    @ym_list = @child.wishes.ym_list(@child)
 
     respond_to do |format|
       format.html # show.html.erb

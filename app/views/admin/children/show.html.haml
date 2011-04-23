@@ -13,6 +13,13 @@
   %b Pocket:
   = number_with_delimiter(@child.pocket)+' 円'
 
+%ul
+  - for ym in @ym_list
+    - if ym == Date.today.strftime('%Y%m')
+      %li=link_to ym, admin_child_wishes_path(@child)
+    - else
+      %li=link_to ym, admin_child_wishes_path(@child, :ym => ym)
+
 = link_to 'Edit', edit_admin_child_path(@child)
 \|
 = link_to 'Back', admin_children_path

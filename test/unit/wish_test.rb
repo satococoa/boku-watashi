@@ -21,4 +21,22 @@ class WishTest < ActiveSupport::TestCase
     assert wish.save
     assert_equal 2, wish.status
   end
+
+  test "self.ym_list" do
+    wish = Fabricate(:wish)
+    child = wish.child
+    assert_equal [Date.today.strftime('%Y%m')], child.wishes.ym_list(child)
+
+    today = Date.today
+    ((today+1)..(today>>3)).each do |date|
+      tmp_wish = Fabricate(:wish, :child => child)
+      tmp_wish.created_at = date
+      tmp_wish.save
+    end
+    list = []
+    (0..3).each do |i|
+      list << (today >> i).strftime('%Y%m')
+    end
+    assert_equal list, child.wishes.ym_list(child)
+  end
 end
