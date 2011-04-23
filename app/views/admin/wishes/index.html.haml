@@ -19,7 +19,7 @@
   - for wish in @wishes
     %li{:class => "status_#{wish.status}"}
       =wish.purpose
-      \|
+      \/
       =number_with_delimiter(wish.cost)+' 円'
       %div{:'data-role' => 'controlgroup', :'data-type' => 'horizontal'}
         - if wish.status == 1
