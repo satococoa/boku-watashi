@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
     false
   end
 
-  def parent?
+  def admin?
     true
   end
 end

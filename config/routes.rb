@@ -1,15 +1,20 @@
 BokuWatashi::Application.routes.draw do
-  get "sessions/new"
-
   resources :children
 
-  get 'admin_logout' => 'admin/sessions#destroy', :as => 'admin_logout'
-  get 'admin_login' => 'admin/sessions#new', :as => 'admin_login'
   get 'signup' => 'users#new', :as => 'signup'
-  get 'admin_root' => 'admin/children'
+
+  get 'admin/children', :as => 'admin_root'
+  # get 'wishes', :as => 'child_root'
+
+  get 'admin_login' => 'admin/sessions#new', :as => 'admin_login'
+  get 'admin_logout' => 'admin/sessions#destroy', :as => 'admin_logout'
+
+  get 'child_login' => 'sessions#new', :as => 'child_login'
+  get 'child_logout' => 'sessions#destroy', :as => 'child_logout'
 
   resources :users
   namespace 'admin' do
+    # resources :sessions, :children, :wishes
     resources :sessions, :children
   end
 

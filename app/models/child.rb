@@ -29,7 +29,7 @@ class Child < ActiveRecord::Base
     true
   end
 
-  def parent?
+  def admin?
     false
   end
 end
