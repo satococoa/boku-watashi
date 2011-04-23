@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    models:
+      user: "おさいふ当番"  #g
+      child: "ぼく / わたし"
+      wish: "おねがい"
+      
+    attributes:
+      child:
+        childname: 'ID'
+        password: 'パスワード'
+        password_confirmation: 'パスワード(かくにん)'
+        nickname: 'なまえ'
+        pocket: 'おこづかい'
+
+      user:
+        email: 'メール'
+        password: 'パスワード'
+        password_confirmation: 'パスワード(確認)'
+
+      wish:
+        cost: 'ねだん'
+        purpose: 'なににつかう？'
+        status: 'つかっていい？'
