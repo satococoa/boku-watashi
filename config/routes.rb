@@ -1,4 +1,6 @@
 BokuWatashi::Application.routes.draw do
+  get "sessions/new"
+
   resources :children
 
   get 'admin_logout' => 'admin/sessions#destroy', :as => 'admin_logout'
