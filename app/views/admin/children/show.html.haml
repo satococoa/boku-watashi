@@ -17,7 +17,7 @@
 %div{:'data-role' => 'controlgroup', :'data-type' => 'horizontal'}
   = link_to t(:edit), edit_admin_child_path(@child), :'data-role' => 'button'
   = link_to t(:delete), admin_child_path(@child), :method => 'delete', :'data-role' => 'button', :target => 'none', :confirm => t(:delete_confirmation)
-  = link_to t(:back), admin_children_path, :'data-role' => 'button'
+  = link_to t(:back), admin_children_url, :'data-role' => 'button'
 
 - if @ym_list.any?
   %h3=t(:wish)
