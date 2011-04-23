@@ -18,4 +18,4 @@
   - if @wish.status == 0
     = link_to t('kana.edit'), edit_wish_path(@wish), :'data-role' => 'button'
     = link_to t('kana.delete'), wish_path(@wish), :method => 'delete', :'data-role' => 'button', :target => 'none', :confirm => 'さくじょしますか？'
-  = link_to t('kana.back'), wishes_path, :'data-role' => 'button'
+  = link_to t('kana.back'), wishes_url, :'data-role' => 'button'
