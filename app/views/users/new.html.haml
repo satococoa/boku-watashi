@@ -1,4 +1,4 @@
-%h1 おさいふ当番新規登録
+%h2=t(:user)
 
 = form_for @user do |f|
   - if @user.errors.any?
@@ -9,19 +9,13 @@
           %li=message
 
   %p
-    =f.label :email
-    %br
-    =f.text_field :email
+    =f.text_field :email, :placeholder => t(:email), :type => 'email'
 
   %p
-    =f.label :password
-    %br
-    =f.password_field :password
+    =f.password_field :password, :placeholder => t(:password)
 
   %p
-    =f.label :password_confirmation
-    %br
-    =f.password_field :password_confirmation
+    =f.password_field :password_confirmation, :placeholder => t(:password_confirmation)
 
   %p.button
     =f.submit

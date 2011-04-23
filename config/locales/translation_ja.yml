@@ -22,3 +22,19 @@ ja:
         cost: 'ねだん'
         purpose: 'なににつかう？'
         status: 'つかっていい？'
+  user: "おさいふ当番"  #g
+  child: "ぼく / わたし"
+  wish: "おねがい"
+  childname: 'ID'
+  password: 'パスワード'
+  password_confirmation: 'パスワード(かくにん)'
+  nickname: 'なまえ'
+  pocket: 'おこづかい'
+  email: 'メール'
+  password: 'パスワード'
+  password_confirmation: 'パスワード(確認)'
+  cost: 'ねだん'
+  purpose: 'なににつかう？'
+  status: 'つかっていい？'
+  login: 'ログイン'
+

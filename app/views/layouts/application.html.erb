@@ -15,14 +15,14 @@
       <% if current_user %>
         <div data-role="header" id="header">
           <% if current_user.admin? %>
-            <%= link_to current_user.email, :admin_root, :'data-icon' => 'home' %>
-            <h1>ぼくの / わたしのおこづかい</h1>
-            <%= link_to 'ログアウト', admin_logout_path, :'data-icon' => 'check' %>
+            <%= link_to 'Top', :admin_root, :'data-icon' => 'home' %>
+            <h1><%= current_user.email %></h1>
+            <%= link_to 'Logout', admin_logout_path, :'data-icon' => 'check' %>
 
           <% else %>
-            <%= link_to current_user.nickname, :child_root, :'data-icon' => 'home' %>
-            <h1>ぼくの / わたしのおこづかい</h1>
-            <%= link_to 'ログアウト', child_logout_path, :'data-icon' => 'check' %>
+            <%= link_to 'Top', :child_root, :'data-icon' => 'home' %>
+            <h1><%= current_user.nickname %></h1>
+            <%= link_to 'Logout', child_logout_path, :'data-icon' => 'check' %>
           <% end %>
         </div>
       <% else %>
