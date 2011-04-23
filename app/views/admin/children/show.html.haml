@@ -12,14 +12,19 @@
     \:
     = number_with_delimiter(@child.pocket)+' 円'
 
-%h3=t(:wish)
-%ul{:'data-role' => 'listview'}
-  - for ym in @ym_list
-    - if ym == Date.today.strftime('%Y%m')
-      %li=link_to "#{ym[0..3]}年#{ym[4..-1]}月のお願い", admin_child_wishes_path(@child)
-    - else
-      %li=link_to "#{ym[0..3]}年#{ym[4..-1]}月のお願い", admin_child_wishes_path(@child, :ym => ym)
+%br
 
-%p
+%div{:'data-role' => 'controlgroup', :'data-type' => 'horizontal'}
   = link_to t(:edit), edit_admin_child_path(@child), :'data-role' => 'button'
+  = link_to t(:delete), admin_child_path(@child), :method => 'delete', :'data-role' => 'button', :target => 'none', :confirm => t(:delete_confirmation)
   = link_to t(:back), admin_children_path, :'data-role' => 'button'
+
+- if @ym_list.any?
+  %h3=t(:wish)
+  %ul{:'data-role' => 'listview'}
+    - for ym in @ym_list
+      - if ym == Date.today.strftime('%Y%m')
+        %li=link_to "#{ym[0..3]}年#{ym[4..-1]}月のお願い", admin_child_wishes_path(@child)
+      - else
+        %li=link_to "#{ym[0..3]}年#{ym[4..-1]}月のお願い", admin_child_wishes_path(@child, :ym => ym)
+

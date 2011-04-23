@@ -33,7 +33,6 @@
         %a{:href => wish_path(wish)}
           %span.purpose= wish.purpose
           %span.purpose= number_with_delimiter(wish.cost)+' 円'
-        
 
 %p
-  = link_to t(:new), new_wish_path, :'data-role' => 'button'
+  = link_to t('kana.new'), new_wish_path, :'data-role' => 'button'

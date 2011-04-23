@@ -12,6 +12,10 @@
     \:
     = Wish::Status[@wish.status]
 
-%p
-  = link_to t(:edit), edit_wish_path(@wish), :'data-role' => 'button'
-  = link_to t(:back), wishes_path, :'data-role' => 'button'
+%br
+
+%div{:'data-role' => 'controlgroup', :'data-type' => 'horizontal'}
+  - if @wish.status == 0
+    = link_to t('kana.edit'), edit_wish_path(@wish), :'data-role' => 'button'
+    = link_to t('kana.delete'), wish_path(@wish), :method => 'delete', :'data-role' => 'button', :target => 'none', :confirm => 'さくじょしますか？'
+  = link_to t('kana.back'), wishes_path, :'data-role' => 'button'

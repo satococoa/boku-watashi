@@ -37,6 +37,7 @@ class WishesController < ApplicationController
   # GET /wishes/1/edit
   def edit
     @wish = current_user.wishes.find(params[:id])
+    redirect_to(@wish) if @wish.status != 0
   end
 
   # POST /wishes
@@ -59,6 +60,7 @@ class WishesController < ApplicationController
   # PUT /wishes/1.xml
   def update
     @wish = current_user.wishes.find(params[:id])
+    redirect_to(@wish) if @wish.status != 0
 
     respond_to do |format|
       if @wish.update_attributes(params[:wish])
@@ -75,6 +77,7 @@ class WishesController < ApplicationController
   # DELETE /wishes/1.xml
   def destroy
     @wish = current_user.wishes.find(params[:id])
+    redirect_to(@wish) if @wish.status != 0
     @wish.destroy
 
     respond_to do |format|
