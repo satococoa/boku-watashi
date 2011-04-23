@@ -28,5 +28,7 @@ class ChildTest < ActiveSupport::TestCase
     child = Fabricate(:childwithuser)
     current_user = Child.authenticate(child.childname, child.password)
     assert_equal child, current_user
+    assert !current_user.parent?
+    assert current_user.child?
   end
 end

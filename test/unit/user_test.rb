@@ -25,6 +25,8 @@ class UserTest < ActiveSupport::TestCase
     user = Fabricate(:user)
     current_user = User.authenticate(user.email, user.password)
     assert_equal user, current_user
+    assert current_user.parent?
+    assert !current_user.child?
   end
 
   test "childrenを登録" do

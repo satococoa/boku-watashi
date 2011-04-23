@@ -24,4 +24,12 @@ class Child < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+
+  def child?
+    true
+  end
+
+  def parent?
+    false
+  end
 end
