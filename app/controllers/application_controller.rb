@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
   end
 
   def require_child
-    redirect_to child_login_url unless @current_user.try(:child?)
+    redirect_to child_login_url unless current_user.try(:child?)
   end
 
   def require_admin
-    redirect_to admin_login_url unless @current_user.try(:admin?)
+    redirect_to admin_login_url unless current_user.try(:admin?)
   end
 end

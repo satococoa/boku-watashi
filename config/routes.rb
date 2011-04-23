@@ -1,22 +1,17 @@
 BokuWatashi::Application.routes.draw do
-  resources :children
+  resources :users
+  namespace 'admin' do
+    resources :sessions, :children
+  end
 
   get 'signup' => 'users#new', :as => 'signup'
 
-  get 'admin/children', :as => 'admin_root'
-  # get 'wishes', :as => 'child_root'
-
   get 'admin_login' => 'admin/sessions#new', :as => 'admin_login'
   get 'admin_logout' => 'admin/sessions#destroy', :as => 'admin_logout'
+  get 'admin_root' => 'admin/children#index', :as => 'admin_root'
 
   get 'child_login' => 'sessions#new', :as => 'child_login'
   get 'child_logout' => 'sessions#destroy', :as => 'child_logout'
-
-  resources :users
-  namespace 'admin' do
-    # resources :sessions, :children, :wishes
-    resources :sessions, :children
-  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

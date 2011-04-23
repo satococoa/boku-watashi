@@ -10,11 +10,17 @@
 
   <div id="user_nav">
     <% if current_user %>
-      ログイン中: <%= current_user.email %>,
-      <%= link_to admin_logout_path %>
+      <% if current_user.admin? %>
+        ログイン中: <%= current_user.email %>,
+        <%= link_to 'ログアウト', admin_logout_path %>
+      <% else %>
+        ログイン中: <%= current_user.childname %>,
+        <%= link_to child_logout_path %>
+      <% end %>
     <% else %>
       <%= link_to '新規登録', signup_path %>, 
-      <%= link_to 'ログイン', admin_login_path %>
+      <%= link_to 'おさいふ当番 ログイン', admin_login_path %>
+      <%= link_to 'ぼく / わたし ログイン', child_login_path %>
     <% end %>
   </div><!-- /user_nav -->
 

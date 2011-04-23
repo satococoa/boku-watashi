@@ -5,6 +5,11 @@ Fabricator(:child) do
   password_confirmation 'password'
 end
 
+Fabricator(:child2, :from => :child) do
+  childname Forgery::Internet.user_name
+  nickname Forgery::Name.first_name
+end
+
 Fabricator(:childwithuser, :from => :child) do
   user!
 end

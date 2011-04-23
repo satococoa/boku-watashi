@@ -9,13 +9,7 @@
 %p
   %b Nickname:
   = @child.nickname
-%p
-  %b Password hash:
-  = @child.password_hash
-%p
-  %b Password salt:
-  = @child.password_salt
 
-= link_to 'Edit', edit_child_path(@child)
+= link_to 'Edit', edit_admin_child_path(@child)
 \|
-= link_to 'Back', children_path
+= link_to 'Back', admin_children_path
