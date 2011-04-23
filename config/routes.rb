@@ -5,8 +5,8 @@ BokuWatashi::Application.routes.draw do
     resources :children do
       get 'wishes' => 'wishes#index'
       get 'wishes/:id' => 'wishes#show', :as => 'wish'
-      put 'wishes/:id/approve' => 'wishes#approve'
-      put 'wishes/:id/reject' => 'wishes#reject'
+      put 'wishes/:id/approve' => 'wishes#approve', :as => 'wish_approve'
+      put 'wishes/:id/reject' => 'wishes#reject', :as => 'wish_reject'
     end
   end
 

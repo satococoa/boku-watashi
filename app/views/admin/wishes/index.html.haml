@@ -1,2 +1,12 @@
 %h1 Admin::Wishes#index
-%p Find me in app/views/admin/wishes/index.html.haml
+%ul
+  - for wish in @wishes
+    %li
+      %span.purpose=wish.purpose
+      %span.cost=number_with_delimiter(wish.cost)+' 円'
+      %span.button=link_to 'いいよ',
+        admin_child_wish_approve_path(wish.child, wish),
+        {:action => 'approve', :method => 'put'}
+      %span.button=link_to 'ダメ',
+        admin_child_wish_reject_path(wish.child, wish),
+        {:action => 'reject', :method => 'put'}
