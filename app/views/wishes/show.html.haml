@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Child:
+  = @wish.child_id
+%p
+  %b Cost:
+  = @wish.cost
+%p
+  %b Purpose:
+  = @wish.purpose
+%p
+  %b Status:
+  = @wish.status
+
+= link_to 'Edit', edit_wish_path(@wish)
+\|
+= link_to 'Back', wishes_path

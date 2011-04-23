@@ -1,4 +1,6 @@
 BokuWatashi::Application.routes.draw do
+  resources :wishes
+
   resources :sessions, :users
   namespace 'admin' do
     resources :sessions, :children
