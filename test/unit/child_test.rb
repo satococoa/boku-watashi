@@ -23,4 +23,10 @@ class ChildTest < ActiveSupport::TestCase
     child2 = Fabricate.build(:child, :user => child.user, :childname => child.childname)
     assert !child2.valid?
   end
+
+  test "self.authenticate" do
+    child = Fabricate(:childwithuser)
+    current_user = Child.authenticate(child.childname, child.password)
+    assert_equal child, current_user
+  end
 end

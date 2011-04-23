@@ -24,7 +24,7 @@ class UserTest < ActiveSupport::TestCase
   test "self.authenticate" do
     user = Fabricate(:user)
     current_user = User.authenticate(user.email, user.password)
-    assert user == current_user
+    assert_equal user, current_user
   end
 
   test "childrenを登録" do
