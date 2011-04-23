@@ -1,25 +1,24 @@
-%p#notice= notice
+%ul{:'data-role' => 'listview'}
+  %li
+    %b=t(:childname)
+    \:
+    = @child.childname
+  %li
+    %b=t(:nickname)
+    \:
+    = @child.nickname
+  %li
+    %b=t(:pocket)
+    \:
+    = number_with_delimiter(@child.pocket)+' 円'
 
-%p
-  %b User:
-  = @child.user_id
-%p
-  %b Childname:
-  = @child.childname
-%p
-  %b Nickname:
-  = @child.nickname
-%p
-  %b Pocket:
-  = number_with_delimiter(@child.pocket)+' 円'
-
-%ul
+%ul{:'data-role' => 'listview'}
   - for ym in @ym_list
     - if ym == Date.today.strftime('%Y%m')
       %li=link_to "#{ym[0..3]}年#{ym[4..-1]}月のお願い", admin_child_wishes_path(@child)
     - else
       %li=link_to "#{ym[0..3]}年#{ym[4..-1]}月のお願い", admin_child_wishes_path(@child, :ym => ym)
 
-= link_to 'Edit', edit_admin_child_path(@child)
-\|
-= link_to 'Back', admin_children_path
+%p
+  = link_to t(:edit), edit_admin_child_path(@child), :'data-role' => 'button'
+  = link_to t(:back), admin_children_path, :'data-role' => 'button'

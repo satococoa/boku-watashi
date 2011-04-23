@@ -7,19 +7,14 @@
           %li= msg
 
   .field
-    = f.label :childname
-    = f.text_field :childname
+    = f.text_field :childname, :placeholder => t(:childname)
   .field
-    = f.label :password
-    = f.password_field :password
+    = f.password_field :password, :placeholder => t(:password)
   .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
+    = f.password_field :password_confirmation, :placeholder => t(:password_confirmation)
   .field
-    = f.label :nickname
-    = f.text_field :nickname
+    = f.text_field :nickname, :placeholder => t(:nickname)
   .field
-    = f.label :pocket
-    = f.text_field :pocket
+    = f.text_field :pocket, :placeholder => t(:pocket)
   .actions
-    = f.submit 'Save'
+    = f.submit t(:save)

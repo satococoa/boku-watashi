@@ -1,25 +1,6 @@
-%h1 Listing children
-
-%table
-  %tr
-    %th User
-    %th Childname
-    %th Nickname
-    %th Pocket
-    %th
-    %th
-    %th
-
+%ul{:'data-role' => 'listview'}
   - @children.each do |child|
-    %tr
-      %td= child.user_id
-      %td= child.childname
-      %td= child.nickname
-      %td= number_with_delimiter(child.pocket)+' 円'
-      %td= link_to 'Show', admin_child_path(child)
-      %td= link_to 'Edit', edit_admin_child_path(child)
-      %td= link_to 'Destroy', admin_child_path(child), :confirm => 'Are you sure?', :method => :delete
+    %li= link_to child.nickname, admin_child_path(child)
 
-%br
-
-= link_to 'New Child', new_admin_child_path
+%p
+  = link_to t(:child) + t(:new), new_admin_child_path, :'data-role' => 'button'
