@@ -14,11 +14,13 @@ class Admin::WishesController < Admin::ApplicationController
   def approve
     @child = current_user.children.find(params[:child_id])
     @wish = @child.wishes.find(params[:id])
+    ym = @wish.created_at.to_date.strftime('%Y%m')
+    ym = nil if ym == Date.today.strftime('%Y%m')
     @wish.status = 1
 
     respond_to do |format|
       if @wish.save
-        format.html { redirect_to(admin_child_wishes_path(@child), :notice => 'Wish was successfully approved.') }
+        format.html { redirect_to(admin_child_wishes_path(@child, :ym => ym), :notice => 'Wish was successfully approved.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "index" }
@@ -30,11 +32,13 @@ class Admin::WishesController < Admin::ApplicationController
   def reject
     @child = current_user.children.find(params[:child_id])
     @wish = @child.wishes.find(params[:id])
+    ym = @wish.created_at.to_date.strftime('%Y%m')
+    ym = nil if ym == Date.today.strftime('%Y%m')
     @wish.status = 2
 
     respond_to do |format|
       if @wish.save
-        format.html { redirect_to(admin_child_wishes_path(@child), :notice => 'Wish was successfully rejected.') }
+        format.html { redirect_to(admin_child_wishes_path(@child, :ym => ym), :notice => 'Wish was successfully rejected.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "index" }

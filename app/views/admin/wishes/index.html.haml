@@ -5,6 +5,10 @@
     $inner.width($progress.width() * $inner.data('width'));
   });
 
+
+%div{:'data-role' => 'controlgroup', :'data-type' => 'horizontal'}
+  = link_to t(:back), admin_child_path(@child), :'data-role' => 'button'
+
 %h2=t(:wish)
 
 %div#progress
