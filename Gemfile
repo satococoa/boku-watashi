@@ -8,6 +8,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'i18n_generators'
 
 group :development, :test do
+  gem 'turn', :require => false
   gem 'capybara'
   gem 'fabrication'
   gem 'forgery'
